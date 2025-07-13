@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - DeokMartZone</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fff0f8, #ffe6f0);
+      padding: 30px;
+      color: #b0006d;
+    }
+    h1 {
+      text-align: center;
+      color: #d63384;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 30px;
+    }
+    li {
+      background: white;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      border: 2px solid #ffbee8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .total {
+      text-align: center;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      background: #d63384;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #b0006d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Keranjang Belanja Kamu 🛍️</h1>
+  <ul id="checkout-items"></ul>
+  <div class="total" id="checkout-total">Total: Rp0</div>
+  <div style="text-align: center;">
+    <button class="btn" onclick="clearCart()">Hapus Semua</button>
+    <button class="btn" onclick="checkoutNow()">Checkout Sekarang</button>
+  </div>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const checkoutList = document.getElementById("checkout-items");
+    const checkoutTotal = document.getElementById("checkout-total");
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span>${item.name} - Rp${item.price.toLocaleString()}</span>
+        <button onclick="removeItem(${index})" class="btn">Hapus</button>
+      `;
+      checkoutList.appendChild(li);
+      total += item.price;
+    });
+
+    checkoutTotal.textContent = `Total: Rp${total.toLocaleString()}`;
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    }
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+
+    function checkoutNow() {
+      alert("🎉 Checkout berhasil! Terima kasih sudah belanja di DeokMartZone!");
+      localStorage.removeItem("cart");
+      window.location.href = "success.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DeokMartZone</title>
+  <style>
+       * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom, #fff0f8, #ffe6f0);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .navbar {
+      background-color: #ffcae8;
+      padding: 12px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: #b0006d;
+      font-weight: bold;
+      font-size: 1em;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover {
+      color: #d63384;
+    }
+    header {
+      text-align: center;
+      background-color: #ffd9ec;
+      padding: 20px;
+      border-radius: 12px;
+      background-image: url("header.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 30px;
+    }
+    header img.logo {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #d63384;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 2.4em;
+      color: #b0006d;
+    }
+    header p {
+      font-size: 1em;
+      color: #555;
+    }
+    .tagline-quote {
+      font-size: 0.9em;
+      color: #b0006d;
+      margin-top: 5px;
+      font-style: italic;
+    }
+    .about {
+      background-color: #fff0f7;
+      padding: 30px 20px;
+      border: 2px solid #ffcde6;
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
+    h2 {
+      text-align: center;
+      color: #b0006d;
+      margin-bottom: 30px;
+      font-size: 1.8em;
+    }
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    .filter-buttons button {
+      background-color: #ffbee8;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      color: #b0006d;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .filter-buttons button:hover {
+      background-color: #d63384;
+      color: white;
+    }
+    #featured-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .product {
+      background-color: #fff;
+      border: 2px solid #ffbee8;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    .product:hover {
+      transform: scale(1.02);
+    }
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .product h3 {
+      font-size: 1.2em;
+      color: #d63384;
+      margin-bottom: 8px;
+    }
+    .product p {
+      font-size: 0.95em;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .product span {
+      display: block;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .button {
+      background-color: #ff69b4; /* Pink pastel */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.95em;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+      transition: background-color 0.3s, transform 0.2s ease;
+    }
+    .button:hover {
+      background-color: #e0449b;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 25px 20px;
+      text-align: center;
+      background-color: #ffd9ec;
+      border-radius: 12px;
+      color: #b0006d;
+      font-size: 0.9em;
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.9em; }
+      .product p { font-size: 0.9em; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#featured-products">Products</a></li>
+      <li><a href="index.html#kontak">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- TITLE -->
+  <h2>Explore Our Collection ✨</h2>
+
+  <div style="text-align: center; margin-bottom: 20px;">
+  <a href="checkout.html" class="button" style="background-color: #d63384; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
+    🛒 Lihat Keranjang
+  </a>
+</div>
+
+  <!-- FILTER BUTTONS -->
+  <div class="filter-buttons">
+    <button onclick="filterProducts('all')">Semua</button>
+    <button onclick="filterProducts('album')">Album K-pop</button>
+    <button onclick="filterProducts('album ost')">Album OST</button>
+    <button onclick="filterProducts('keychain')">Keychain</button>
+    <button onclick="filterProducts('lightstick')">Lightstick</button>
+    <button onclick="filterProducts('doll')">Doll</button>
+  </div>
+
+  <!-- PRODUK LIST -->
+   <section id="featured-products">
+
+  <!-- 💿 Album K-Pop -->
+   <div class="product" data-category="album">
+  <img src="album treasure chapter two.jpg" alt="Treasure Chapter Two" />
+  <h3>Treasure - The Second Step: Chapter Two</h3>
+  <p>Album penuh semangat dari TREASURE berisi hits powerful & photocard yang bikin fangirl meleleh! 💿✨</p>
+  <span>Rp220.000</span>
+  <button class="button" onclick="addToCart('Treasure - The Second Step: Chapter Two', 220000)">Beli</button>
+</div>
+
+<div class="product" data-category="album">
+  <img src="album treasure pleasure digipack .jpg" alt="Treasure Pleasure" />
+  <h3>Treasure - The First Step: TREASURE Effect (Digipack)</h3>
+  <p>Digipack dengan bonus random photocard, poster, dan photobook. Paket lengkap buat Teume sejati! 💎</p>
+  <span>Rp185.000</span>
+  <button class="button" onclick="addToCart('Treasure - The First Step (Digipack)', 185000)">Beli</button>
+</div>
+
+<div class="product" data-category="album">
+  <img src="album treasure reboot.jpg" alt="Treasure Reboot" />
+  <h3>Treasure - REBOOT</h3>
+  <p>Comeback powerful dari TREASURE, konsep futuristik & bonus AR photocard, QR video card, dll!</p>
+  <span>Rp240.000</span>
+  <button class="button" onclick="addToCart('Treasure - REBOOT', 240000)">Beli</button>
+</div>
+
+<div class="product" data-category="album">
+  <img src="boynextdoor how.jpg" alt="BOYNEXTDOOR HOW" />
+  <h3>BOYNEXTDOOR - HOW</h3>
+  <p>Album heartbreak ala anak muda. CD + lyric paper + photocard. 💔</p>
+  <span>Rp205.000</span>
+  <button class="button" onclick="addToCart('BOYNEXTDOOR - HOW', 205000)">Beli</button>
+</div>
+
+<div class="product" data-category="album">
+  <img src="boynextdoor who.jpg" alt="BOYNEXTDOOR WHO" />
+  <h3>BOYNEXTDOOR - WHO!</h3>
+  <p>Debut album dengan desain unik & photo booklet kece! 🎧</p>
+  <span>Rp199.000</span>
+  <button class="button" onclick="addToCart('BOYNEXTDOOR - WHO!', 199000)">Beli</button>
+</div>
+
+<div class="product" data-category="album">
+  <img src="album boynextdoor why.jpg" alt="BOYNEXTDOOR WHY" />
+  <h3>BOYNEXTDOOR - WHY..</h3>
+  <p>Vibes mellow dan emotional lyrics. Bonus stiker & polaroid 🎶</p>
+  <span>Rp215.000</span>
+  <button class="button" onclick="addToCart('BOYNEXTDOOR - WHY..', 215000)">Beli</button>
+</div>
+
+<div class="product" data-category="album">
+  <img src="seventeen '17 is right here'.jpg" alt="SEVENTEEN 17 is Right Here" />
+  <h3>SEVENTEEN - 17 IS RIGHT HERE</h3>
+  <p>Best hits + photobook & documentary. Perfect buat Carats! 💖</p>
+  <span>Rp385.000</span>
+  <button class="button" onclick="addToCart('SEVENTEEN - 17 IS RIGHT HERE', 385000)">Beli</button>
+</div>
+
+<div class="product" data-category="album">
+  <img src="seventeen heaven .jpg" alt="SEVENTEEN Heaven" />
+  <h3>SEVENTEEN - Heaven</h3>
+  <p>Photocard member, lyric booklet, stiker dari Tokyo Dome 🌈</p>
+  <span>Rp412.000</span>
+  <button class="button" onclick="addToCart('SEVENTEEN - Heaven', 412000)">Beli</button>
+</div>
+
+<div class="product" data-category="album">
+  <img src="spill the future carat ver.jpg" alt="SEVENTEEN Carat Version" />
+  <h3>SEVENTEEN - Spill the Future (Carat ver)</h3>
+  <p>Vibes dewasa, cover eksklusif Carat + photocard lenticular 💫</p>
+  <span>Rp399.000</span>
+  <button class="button" onclick="addToCart('SEVENTEEN - Spill the Future (Carat ver)', 399000)">Beli</button>
+</div>
+
+<div class="product" data-category="album">
+  <img src="album jxw.jpg" alt="Jeonghan & Wonwoo Album" />
+  <h3>SEVENTEEN - Jeonghan & Wonwoo Album</h3>
+  <p>Unit spesial dengan photobook, poster & photocard random 💘</p>
+  <span>Rp389.000</span>
+  <button class="button" onclick="addToCart('SEVENTEEN - Jeonghan & Wonwoo Album', 389000)">Beli</button>
+</div>
+
+  <!-- 💿 Album OST -->
+   <div class="product" data-category="album ost">
+  <img src="album ost goblin.jpg" alt="OST Goblin">
+  <h3>OST Goblin</h3>
+  <p>Soundtrack legendaris dari drama Goblin! 💫 Termasuk poster mini & photocard spesial!</p>
+  <span>Rp279.000</span>
+  <button class="button" onclick="addToCart('OST Goblin', 279000)">Beli</button>
+</div>
+
+<div class="product" data-category="album ost">
+  <img src="album ost 2521.jpg" alt="OST Twenty Five Twenty One">
+  <h3>OST Twenty Five Twenty One</h3>
+  <p>Nostalgia masa remaja bareng Na Hee Do dan Baek Yi Jin 💌✨ Dengan booklet & sticker eksklusif!</p>
+  <span>Rp265.000</span>
+  <button class="button" onclick="addToCart('OST Twenty Five Twenty One', 265000)">Beli</button>
+</div>
+
+<div class="product" data-category="album ost">
+  <img src="album ost exraordinary attorny woo.jpg" alt="OST Extraordinary Attorney Woo">
+  <h3>OST Extraordinary Attorney Woo</h3>
+  <p>Peluk hangat dari soundtrack drama paling wholesome tahun ini 🐳💕 Bonus photocard spesial!</p>
+  <span>Rp289.000</span>
+  <button class="button" onclick="addToCart('OST Extraordinary Attorney Woo', 289000)">Beli</button>
+</div>
+
+<div class="product" data-category="album ost">
+  <img src="album ost hospital playlist.jpg" alt="OST Hospital Playlist">
+  <h3>OST Hospital Playlist</h3>
+  <p>Vibes persahabatan yang bikin hati hangat 🎶💗 Full track + photobook eksklusif!</p>
+  <span>Rp299.000</span>
+  <button class="button" onclick="addToCart('OST Hospital Playlist', 299000)">Beli</button>
+</div>
+
+<div class="product" data-category="album ost">
+  <img src="album ost lovely runner.jpg" alt="OST Love Runner">
+  <h3>OST Love Runner</h3>
+  <p>Buat yang suka drama manis tapi bikin deg-degan 💞💨 Album dengan photocard dan sticker cute!</p>
+  <span>Rp259.000</span>
+  <button class="button" onclick="addToCart('OST Love Runner', 259000)">Beli</button>
+</div>
+
+<div class="product" data-category="album ost">
+  <img src="album ost my rommate is gumiho.jpg" alt="OST My Roommate is Gumiho">
+  <h3>OST My Roommate is Gumiho</h3>
+  <p>Sentuhan magis dari Gumiho dan mahasiswa cantik 🦊✨ Paket dengan mini poster & bonus track!</p>
+  <span>Rp269.000</span>
+  <button class="button" onclick="addToCart('OST My Roommate is Gumiho', 269000)">Beli</button>
+</div>
+
+<div class="product" data-category="album ost">
+  <img src="album ost our unwritten soul.jpg" alt="OST Our Unwritten Soul">
+  <h3>OST Our Unwritten Soul</h3>
+  <p>Suara-suara mellow buat kamu yang suka healing vibes 💭🌙 Disertai lyric book cantik!</p>
+  <span>Rp249.000</span>
+  <button class="button" onclick="addToCart('OST Our Unwritten Soul', 249000)">Beli</button>
+</div>
+
+<div class="product" data-category="album ost">
+  <img src="album ost resident palybook.jpg" alt="OST Resident Playlist">
+  <h3>OST Resident Playlist</h3>
+  <p>Drama medis penuh cinta & perjuangan 🩺💓 Lengkap dengan booklet & stiker karakter!</p>
+  <span>Rp285.000</span>
+  <button class="button" onclick="addToCart('OST Resident Playlist', 285000)">Beli</button>
+</div>
+
+<div class="product" data-category="album ost">
+  <img src="album ost snowdrop.jpg" alt="OST Snowdrop">
+  <h3>OST Snowdrop</h3>
+  <p>Cinta tragis di tengah badai politik 💔❄ Album super elegan dengan hard cover dan photobook!</p>
+  <span>Rp319.000</span>
+  <button class="button" onclick="addToCart('OST Snowdrop', 319000)">Beli</button>
+</div>
+
+<div class="product" data-category="album ost">
+  <img src="album ost twinkling watermelon.jpg" alt="OST Twinkling Watermelon">
+  <h3>OST Twinkling Watermelon</h3>
+  <p>Percikan nostalgia dan warna-warni musik! 🎸🌈 Dilengkapi CD audio dan bookmark lucu!</p>
+  <span>Rp275.000</span>
+  <button class="button" onclick="addToCart('OST Twinkling Watermelon', 275000)">Beli</button>
+</div>
+
+
+  <!-- Keychain -->
+  <div class="product" data-category="keychain">
+  <img src="jaewoo keychain treasure.jpg" alt="Jaewoo Keychain Treasure">
+  <h3>Keychain Jaewoo - TREASURE</h3>
+  <p>Gemas maksimal! Jaewoo versi mini siap nemenin kamu ngebucin tiap hari~ 🩷✨</p>
+  <span>Rp45.000</span>
+  <button class="button" onclick="addToCart('Keychain Jaewoo - TREASURE', 45000)">Beli</button>
+</div>
+
+<div class="product" data-category="keychain">
+  <img src="keychain treasure  star boy.jpg" alt="Treasure Star Boy Keychain">
+  <h3>Keychain Star Boy - TREASURE</h3>
+  <p>Vibes dreamy ala Star Boy 🌠 cocok buat gantungan tas atau pouch kamu~</p>
+  <span>Rp48.000</span>
+  <button class="button" onclick="addToCart('Keychain Star Boy - TREASURE', 48000)">Beli</button>
+</div>
+
+<div class="product" data-category="keychain">
+  <img src="keychain treasure.jpg" alt="Treasure Keychain">
+  <h3>Keychain Logo - TREASURE</h3>
+  <p>Minimalist + aesthetic! Logo TREASURE siap bikin barang kamu makin stan-worthy 💙</p>
+  <span>Rp40.000</span>
+  <button class="button" onclick="addToCart('Keychain Logo - TREASURE', 40000)">Beli</button>
+</div>
+
+<div class="product" data-category="keychain">
+  <img src="keychain boynextdoor.jpg" alt="BOYNEXTDOOR Keychain">
+  <h3>Keychain - BOYNEXTDOOR</h3>
+  <p>Lucu-lucu member BND versi mini! Bisa jadi gantungan hp biar makin uwuuu~ 🎧</p>
+  <span>Rp42.000</span>
+  <button class="button" onclick="addToCart('Keychain - BOYNEXTDOOR', 42000)">Beli</button>
+</div>
+
+<div class="product" data-category="keychain">
+  <img src="keychain nct wish.jpg" alt="NCT WISH Keychain">
+  <h3>Keychain - NCT WISH</h3>
+  <p>Keychain stylish dengan logo NCT WISH. Minimalist + fierce, kayak bias kamu 💚</p>
+  <span>Rp43.000</span>
+  <button class="button" onclick="addToCart('Keychain - NCT WISH', 43000)">Beli</button>
+</div>
+
+<div class="product" data-category="keychain">
+  <img src="nct dream rock star.jpg" alt="NCT Dream Rock Star Keychain">
+  <h3>Keychain Rockstar - NCT Dream</h3>
+  <p>Keychain edisi Rockstar! Perfect buat kamu yang suka konsep edgy + cool 😎🎸</p>
+  <span>Rp49.000</span>
+  <button class="button" onclick="addToCart('Keychain Rockstar - NCT Dream', 49000)">Beli</button>
+</div>
+
+<div class="product" data-category="keychain">
+  <img src="seventeen keychain.jpg" alt="Seventeen Keychain">
+  <h3>Keychain - SEVENTEEN</h3>
+  <p>13 member dalam satu keychain cute? Iya dong! Biar OT13 stan makin komplit 💎</p>
+  <span>Rp47.000</span>
+  <button class="button" onclick="addToCart('Keychain - SEVENTEEN', 47000)">Beli</button>
+</div>
+
+<div class="product" data-category="keychain">
+  <img src="keychain bagcharm.jpg" alt="Keychain Bag Charm">
+  <h3>Keychain Bag Charm Pinky</h3>
+  <p>Keychain + gantungan tas super imut warna pink pastel. Cocok buat mood girly kamu 🎀</p>
+  <span>Rp38.000</span>
+  <button class="button" onclick="addToCart('Keychain Bag Charm Pinky', 38000)">Beli</button>
+</div>
+
+<div class="product" data-category="keychain">
+  <img src="nct keychain.jpg" alt="NCT Keychain">
+  <h3>Keychain Member NCT</h3>
+  <p>Pilih bias kamu dan bawa dia kemana-mana bareng keychain ini 💚 Siapa ultimate bias-mu?</p>
+  <span>Rp44.000</span>
+  <button class="button" onclick="addToCart('Keychain Member NCT', 44000)">Beli</button>
+</div>
+
+<div class="product" data-category="keychain">
+  <img src="keychain nct dream.jpg" alt="NCT Dream Candy Crush Keychain">
+  <h3>Keychain Candy Crush - NCT Dream</h3>
+  <p>Satu set keychain gemes NCT Dream edisi Candy Crush! Warna-warni, manis, dan full of love~ 🍭💖</p>
+  <span>Rp50.000</span>
+  <button class="button" onclick="addToCart('Keychain Candy Crush - NCT Dream', 50000)">Beli</button>
+</div>
+
+<!-- Lightstick K-Pop -->
+<div class="product" data-category="lightstick">
+  <img src="lightstick blackpink.jpg" alt="Lightstick BLACKPINK">
+  <h3>Lightstick BLACKPINK Ver.2</h3>
+  <p>Heart hammer ikonik warna pink & hitam buat BLINKs! Bisa nyala & ada Bluetooth-nya 💖🖤</p>
+  <span>Rp650.000</span>
+  <button class="button" onclick="addToCart('Lightstick BLACKPINK Ver.2', 650000)">Beli</button>
+</div>
+
+<div class="product" data-category="lightstick">
+  <img src="lightstick boynextdoor.jpg" alt="Lightstick BOYNEXTDOOR">
+  <h3>Lightstick BOYNEXTDOOR</h3>
+  <p>Desain simpel & elegan kayak oppa-oppa BoyNextDoor 😍 Sempurna buat konser dan koleksi!</p>
+  <span>Rp480.000</span>
+  <button class="button" onclick="addToCart('Lightstick BOYNEXTDOOR', 480000)">Beli</button>
+</div>
+
+<div class="product" data-category="lightstick">
+  <img src="lightstick daisy g-dragon.jpg" alt="Lightstick G-Dragon Daisy">
+  <h3>Lightstick G-Dragon Daisy</h3>
+  <p>Unik banget kayak GD himself 😎 Bentuk bunga Daisy-nya aesthetic parah, VIP wajib punya!</p>
+  <span>Rp720.000</span>
+  <button class="button" onclick="addToCart('Lightstick G-Dragon Daisy', 720000)">Beli</button>
+</div>
+
+<div class="product" data-category="lightstick">
+  <img src="lightstick exo.jpg" alt="Lightstick EXO">
+  <h3>Lightstick EXO Ver.3</h3>
+  <p>Logo hexagon yang ikonik plus lampu super terang buat EXO-L! Siap-siap fanchant bareng 🤍✨</p>
+  <span>Rp550.000</span>
+  <button class="button" onclick="addToCart('Lightstick EXO Ver.3', 550000)">Beli</button>
+</div>
+
+<div class="product" data-category="lightstick">
+  <img src="lightstick nct wish.jpg" alt="Lightstick NCT Wish">
+  <h3>Lightstick NCT Wish</h3>
+  <p>Warna hijau neon khas NCTzen banget 💚 Bentuk minimalis, tapi power-nya maksimal!</p>
+  <span>Rp600.000</span>
+  <button class="button" onclick="addToCart('Lightstick NCT Wish', 600000)">Beli</button>
+</div>
+
+<div class="product" data-category="lightstick">
+  <img src="lightstick riize.jpg" alt="Lightstick RIIZE">
+  <h3>Lightstick RIIZE</h3>
+  <p>Design fresh kayak rookie monster RIIZE 🩵✨ Cocok banget buat fans baru & lama!</p>
+  <span>Rp490.000</span>
+  <button class="button" onclick="addToCart('Lightstick RIIZE', 490000)">Beli</button>
+</div>
+
+<div class="product" data-category="lightstick">
+  <img src="lightstick treasure.jpg" alt="Lightstick TREASURE">
+  <h3>Lightstick TREASURE Ver.1</h3>
+  <p>Bentuk diamond biru yang cute banget 💎💕 Buat Teume yang mau shining di konser!</p>
+  <span>Rp530.000</span>
+  <button class="button" onclick="addToCart('Lightstick TREASURE Ver.1', 530000)">Beli</button>
+</div>
+
+<div class="product" data-category="lightstick">
+  <img src="lightstick twice.jpg" alt="Lightstick TWICE">
+  <h3>Lightstick TWICE Candybong Z</h3>
+  <p>Candybong versi Z ini estetik parah! 🌸✨ Buat ONCE yang suka warna soft dan girly~</p>
+  <span>Rp580.000</span>
+  <button class="button" onclick="addToCart('Lightstick TWICE Candybong Z', 580000)">Beli</button>
+</div>
+
+<div class="product" data-category="lightstick">
+  <img src="lightstick wayv.jpg" alt="Lightstick WayV">
+  <h3>Lightstick WayV</h3>
+  <p>Minimalis tapi classy 🖤 Buat WayZenNi yang suka warna putih & hijau muda!</p>
+  <span>Rp510.000</span>
+  <button class="button" onclick="addToCart('Lightstick WayV', 510000)">Beli</button>
+</div>
+
+<div class="product" data-category="lightstick">
+  <img src="lightsticl carat ver 3.jpg" alt="Lightstick SEVENTEEN">
+  <h3>Lightstick SEVENTEEN Carat Bong Ver.3</h3>
+  <p>Bentuk diamond-nya shining shimmering splendid! 💎💙 Carat wajib punya buat fanchant all out!</p>
+  <span>Rp650.000</span>
+  <button class="button" onclick="addToCart('Lightstick SEVENTEEN Carat Bong Ver.3', 650000)">Beli</button>
+</div>
+
+
+<!-- Doll K-pop -->
+<div class="product" data-category="doll">
+  <img src="nct wish winimalz.jpg" alt="NCT Wish Winimalz Doll">
+  <h3>NCT Wish Winimalz Doll</h3>
+  <p>Gemes banget! Boneka Winimalz dari NCT Wish yang super imut dan wajib punya buat para Czennies~</p>
+  <span>Rp280.000</span>
+  <button class="button" onclick="addToCart('NCT Wish Winimalz Doll', 280000)">Beli</button>
+</div>
+
+<div class="product" data-category="doll">
+  <img src="nct wichu doll.jpg" alt="NCT Wichu Doll">
+  <h3>NCT Wichu Doll</h3>
+  <p>Doll Wichu lucu dan lembut banget~ Siap nemenin kamu nonton fancam bias tiap malam!</p>
+  <span>Rp300.000</span>
+  <button class="button" onclick="addToCart('NCT Wichu Doll', 300000)">Beli</button>
+</div>
+
+<div class="product" data-category="doll">
+  <img src="truz minini snack doll.jpg" alt="TRUZ Mini Minini Snack Doll">
+  <h3>TRUZ Mini Minini Snack Doll</h3>
+  <p>Mini doll TRUZ gemoy dari Treasure buat kamu peluk tiap hari! Ukuran pas, hati makin meleleh 💖</p>
+  <span>Rp275.000</span>
+  <button class="button" onclick="addToCart('TRUZ Mini Minini Snack Doll', 275000)">Beli</button>
+</div>
+
+<div class="product" data-category="doll">
+  <img src="seventeen miniteen.jpg" alt="SEVENTEEN Miniteen Doll">
+  <h3>SEVENTEEN Miniteen Doll</h3>
+  <p>Mini boneka dari SEVENTEEN yang super adorable! Wajib koleksi buat para Carat~ 💎</p>
+  <span>Rp290.000</span>
+  <button class="button" onclick="addToCart('SEVENTEEN Miniteen Doll', 290000)">Beli</button>
+</div>
+
+<div class="product" data-category="doll">
+  <img src="stray kids magic scholl doll .jpg" alt="Stray Kids Magic School Doll">
+  <h3>Stray Kids Magic School Doll</h3>
+  <p>Doll bertema Magic School dari Stray Kids, lucu parah! Siap-siap dibikin terpesona sama gemesnya~</p>
+  <span>Rp310.000</span>
+  <button class="button" onclick="addToCart('Stray Kids Magic School Doll', 310000)">Beli</button>
+</div>
+
+<div class="product" data-category="doll">
+  <img src="svt bongbongee doll.jpg" alt="SVT BongBongee Doll">
+  <h3>SVT BongBongee Doll</h3>
+  <p>Boneka BongBongee yang menggemaskan dari Seventeen~ Teman terbaik buat nonton konser bareng!</p>
+  <span>Rp265.000</span>
+  <button class="button" onclick="addToCart('SVT BongBongee Doll', 265000)">Beli</button>
+</div>
+
+<div class="product" data-category="doll">
+  <img src="svt wonwoo bubblewon.jpg" alt="SVT Wonwoo Bubblewon Doll">
+  <h3>SVT Wonwoo Bubblewon Doll</h3>
+  <p>Bias kamu Wonwoo? Kamu wajib punya Bubblewon yang menggemaskan ini~ 🫧💜</p>
+  <span>Rp320.000</span>
+  <button class="button" onclick="addToCart('SVT Wonwoo Bubblewon Doll', 320000)">Beli</button>
+</div>
+
+<div class="product" data-category="doll">
+  <img src="treasure truz.jpg" alt="Treasure TRUZ Doll">
+  <h3>Treasure TRUZ Doll</h3>
+  <p>Boneka karakter TRUZ dari Treasure yang iconic banget! Collect them all buat temanin hari-harimu ✨</p>
+  <span>Rp285.000</span>
+  <button class="button" onclick="addToCart('Treasure TRUZ Doll', 285000)">Beli</button>
+</div>
+
+<div class="product" data-category="doll">
+  <img src="treasure x line friends truzz minini doll.jpg" alt="Treasure x LINE FRIENDS TRUZ Minini Doll">
+  <h3>Treasure x LINE FRIENDS TRUZ Minini Doll</h3>
+  <p>Kolaborasi imut TRUZ x LINE FRIENDS! Gemes maksimal dan perfect buat pajangan di kamar 💕</p>
+  <span>Rp310.000</span>
+  <button class="button" onclick="addToCart('Treasure x LINE FRIENDS TRUZ Minini Doll', 310000)">Beli</button>
+</div>
+
+<div class="product" data-category="doll">
+  <img src="doll the boyz.jpg" alt="THE BOYZ Doll">
+  <h3>THE BOYZ Doll</h3>
+  <p>Doll dari THE BOYZ yang super cute! Siap temenin kamu fangirling 24/7~ 😍</p>
+  <span>Rp295.000</span>
+  <button class="button" onclick="addToCart('THE BOYZ Doll', 295000)">Beli</button>
+</div>
+
+</section>
+
+<!-- KERANJANG BELANJA -->
+<div id="cart" style="margin-top: 50px; background: #fff0f7; border: 2px solid #ffcde6; border-radius: 12px; padding: 20px;">
+  <h3 style="color: #b0006d; text-align:center;">🛒 Keranjang Belanja</h3>
+  <ul id="cart-items" style="list-style: none; padding: 0; margin-bottom: 10px;"></ul>
+  <p id="cart-total" style="font-weight: bold; color: #b0006d;"></p>
+  <div style="text-align:center; margin-top: 20px;">
+    <a href="checkout.html" class="button" style="background-color: #d63384; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none;">Checkout</a>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`🛒 ${name} berhasil ditambahkan ke keranjang!\nTotal item di keranjang: ${cart.length}`);
+    updateCartDisplay();
+    showCartPopup();
+  }
+
+  function showCartPopup() {
+    const popup = document.getElementById("cart-popup");
+    popup.style.display = "block";
+    popup.style.animation = "bounce 1s ease";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 1000);
+  }
+
+  function updateCartDisplay() {
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    if (!cartItems || !cartTotal) return;
+
+    cartItems.innerHTML = "";
+    let total = 0;
+    cart.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.name} - Rp${item.price.toLocaleString()}`;
+      cartItems.appendChild(li);
+      total += item.price;
+    });
+    cartTotal.textContent = `Total: Rp${total.toLocaleString()}`;
+  }
+
+  function filterProducts(category) {
+    const products = document.querySelectorAll('.product');
+    products.forEach(product => {
+      if (category === 'all' || product.dataset.category === category) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  }
+
+  updateCartDisplay();
+</script>
+
+<!-- Pop-up animasi keranjang -->
+<div id="cart-popup" style="
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  font-size: 40px;
+  animation: bounce 1s ease;
+  z-index: 9999;
+">🛒</div>
+
+<style>
+@keyframes bounce {
+  0% { transform: scale(1); opacity: 0; }
+  30% { transform: scale(1.4); opacity: 1; }
+  60% { transform: scale(1); }
+  100% { transform: scale(0.8); opacity: 0; }
+}
+</style>
+
+</body>
+</html>
